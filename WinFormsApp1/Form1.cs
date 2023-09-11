@@ -25,9 +25,17 @@ namespace WinFormsApp1
                 else { KeyErrors += "The Digits In The First Box Cant Be 333, 444, 555, 666, 777, 888 or 999, "; }
 
                 //get sum of box 2
-                Int32 SumOfBox2 = Box2.Split(new char[] { ',' })   //get the "list" of strings
-                       .Select(n => Int32.Parse(n)) //get the "list" of integers
-                       .Sum();                      //get the sum
+                int SumOfBox2 = 0;
+                var x = Box2.ToCharArray();
+                Console.WriteLine(x);
+                for (int I = 0; I <= x.Length - 1; I++)
+                {
+                    if (x[I] > '0' && x[I] <= '9')
+                    {
+                        SumOfBox2 += x[I] - '0';
+                    }
+                }
+                //label2.Text = SumOfBox2.ToString();
                 if (SumOfBox2 % 7 == 0)
                 {
                     ValidityScore += 1;
@@ -54,6 +62,7 @@ namespace WinFormsApp1
         private void Form1_Load(object sender, EventArgs e)
         {
             label1.Text = ""; //make label invisible on load
+            label2.Text = "";
         }
     }
 }
