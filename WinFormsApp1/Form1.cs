@@ -17,7 +17,9 @@ namespace WinFormsApp1
                 label1.Text = Box1 + Box2;
                 string KeyErrors = "";
 
-                if (Box1[0] == Box1[1] && Box1[0] == Box1[2]) // check if the first box isnt equal to blacklisted values
+                List<int> allowed = new List<int>(new int[]{ '0', '1', '2' });
+
+                if (!allowed.Contains(Box1[0]) && (Box1[0] == Box1[1] && Box1[0] == Box1[2])) // check if the first box isnt equal to blacklisted values
                 {
                     KeyErrors += "The Digits In The First Box Cant Be Equal, ";
                 }
